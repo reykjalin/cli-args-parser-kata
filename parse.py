@@ -6,8 +6,13 @@ class ArgumentParser:
         args_dict = {}
         key = ""
 
-        for arg in self.args:
-            args_dict[arg[2:]] = True
+        while len(self.args) > 0:
+            if len(self.args) == 1 or self.args[1].startswith("--"):
+                args_dict.update(self.parse_simple(self.args[0]))
+            else:
+                args_dict.update(self.parse_composite(self.args[0 : 2]))
+                self.args.remove(self.args[1])
+            self.args.remove(self.args[0])
 
         return args_dict
 
