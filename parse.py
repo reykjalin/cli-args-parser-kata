@@ -15,4 +15,9 @@ class ArgumentParser:
         return {arg[2:]: True}
 
     def parse_composite(self, arg):
-        return {arg[0][2:]: arg[1]}
+        flag = arg[0][2:]
+        value = arg[1]
+        try:
+            return {flag: int(value)}
+        except:
+            return {flag: value}
