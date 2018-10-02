@@ -10,3 +10,9 @@ class ArgumentParser:
             args_dict[arg[2:]] = True
 
         return args_dict
+
+    def parse_simple(self, arg):
+        return {arg[2:]: True}
+
+    def parse_composite(self, arg):
+        return {arg[0][2:]: arg[1]}
