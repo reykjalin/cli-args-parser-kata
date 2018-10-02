@@ -7,10 +7,6 @@ class ArgumentParser:
         key = ""
 
         for arg in self.args:
-            if arg.startswith("--"):
-                key = arg[2:]
-                args_dict[key] = ""
-            else:
-                args_dict[key] = arg
+            args_dict[arg[2:]] = True
 
         return args_dict
