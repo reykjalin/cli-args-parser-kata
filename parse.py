@@ -1,5 +1,7 @@
 class ArgumentParser:
     def __init__(self, args):
+        if isinstance(args, str):
+            args = args.split(" ")
         self.args = args[1:]
 
     def parse(self):
